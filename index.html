@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+  </head>
+  <body>
+    <div class="container">
+      <span class="display" id="counter"></span>
+      <span class="caption">Number times button clicked</span>
+      <button class="btn primary" onclick="clicker.incr()">Click me!</button>
+    </div>
+  </body>
+</html>
+
+<style>
+  :root {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    display: flex;
+  }
+
+  .display {
+    font-size: xx-large;
+    
+  }
+
+  .caption {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    font-weight:200;
+    font-size: small;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
+    text-align: center;
+    width: 30vw;
+    margin: auto;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+  }
+
+  .btn {
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 2rem;
+  }
+
+  .primary {
+    background-color: rgb(64, 255, 0);
+    color: black;
+  }
+
+</style>
+
+<script>
+  class Clicker {
+    constructor() {
+      this.count = 0; 
+    }
+
+    incr() {
+      this.count++; 
+      this.render()
+    }
+
+    render () {
+      let el = document.getElementById("counter");
+      el.innerHTML = this.count; 
+    }
+  }; 
+
+  const clicker = new Clicker(); 
+
+  window.onload = clicker.render(); 
+</script>
